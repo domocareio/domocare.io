@@ -4,7 +4,6 @@
 
 
 ## Stream structure
-### For the sensor
 ```
 domosafety
 ├── <location>
@@ -18,27 +17,84 @@ domosafety
 │   │   │   ├── Battery Level
 │   │   │   ├── time delta
 ```
+## Data structures
+```
+Battery Level
+├── electromotive-force/v
+```
+```
+time delta
+├── tims/s (tag: transmissionTimeLag)
+```
+```
+LQI
+├── signal/lqi
+```
+```
+RSSI
+├── signal/rssi
+```
+```
+<help sensor>
+├── help/pressed (tag: value)
+```
+```
+<activity sensor>
+├── motion/on (tag: value)
+├── motion/off (tag: value)
+```
+```
+<door sensor>
+├── door/open (tag: value)
+├── door/closed (tag: value)
+```
+```
+<bed sensor>
+├── 
+```
+
+## Time
+All the times are in UTC.
+The time is represented as a Unix timestamp, see [this tool](http://www.unixtimestamp.com/index.php) for conversion.
 
 ## Troubleshooting
 Use [Google Chrome](https://www.google.com/chrome/) with the extention [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) to test the request and have a formatted display of the server response.
 
+## Platform reference
+Consult [the complete API reference](http://pryv.github.io/reference/) of the platform.
+
 # Getting started
 ## Authentication
 You need the authorization token for the user you whish to access the data.
+To get the access rights of a token run
+````
+https://<user id>.domocare.io/access-info?auth=<authentication token>
+```
 
 ## Get streams list
 ```
 https://<user id>.domocare.io/streams?auth=<authentication token>
 ```
 
-## Get values for a stream
-## Get values for a stream for a period
-## Get all the value
-
-
+## Get all the data for a stream
+````
+https://<user id>.domocare.io/events?streams[]=<stream id>&auth=<authentication token>
+```
+## Get only the events for a stream
+````
+https://<user id>.domocare.io/events?streams[]=<stream id>&tags[]=value&auth=<authentication token>
+```
+## Get the events for a stream for a period
+````
+https://<user id>.domocare.io/events?streams[]=<stream id>&tags[]=value&fromTime=1461715200&toTime=1461801599&auth=<authentication token>
+```
+## Get the last 100 events
+````
+https://<user id>.domocare.io/events?tags[]=value&limit=100&auth=<authentication token>
+```
 # Examples
 ## Streams list
-```json
+```javascript
 [
    {
       "clientData":{
