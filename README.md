@@ -64,31 +64,32 @@ Use [Google Chrome](https://www.google.com/chrome/) with the extention [JSONView
 Consult [the complete API reference](http://pryv.github.io/reference/) of the platform.
 
 # Getting started
-## Authentication
+* Authentication
+
 You need the authorization token for the user you whish to access the data.
 To get the access rights of a token run
 ````
 https://<user id>.domocare.io/access-info?auth=<authentication token>
 ```
 
-## Get streams list
+* Get streams list
 ```
 https://<user id>.domocare.io/streams?auth=<authentication token>
 ```
 
-## Get all the data for a stream
+* Get all the data for a stream
 ````
 https://<user id>.domocare.io/events?streams[]=<stream id>&auth=<authentication token>
 ```
-## Get only the events for a stream
+* Get only the events for a stream
 ````
 https://<user id>.domocare.io/events?streams[]=<stream id>&tags[]=value&auth=<authentication token>
 ```
-## Get the events for a stream for a period
+* Get the events for a stream for a period
 ````
 https://<user id>.domocare.io/events?streams[]=<stream id>&tags[]=value&fromTime=1461715200&toTime=1461801599&auth=<authentication token>
 ```
-## Get the last 100 events
+* Get the last 100 events
 ````
 https://<user id>.domocare.io/events?tags[]=value&limit=100&auth=<authentication token>
 ```
