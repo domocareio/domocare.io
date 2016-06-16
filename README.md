@@ -50,7 +50,8 @@ RSSI
 ```
 ```
 <bed sensor>
-├── 
+├── bed/in
+├── bed/out
 ```
 
 ## Time
