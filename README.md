@@ -105,7 +105,6 @@ https://<user id>.domocare.io/events?tags[]=value&limit=100&auth=<authentication
 |Headers|Content-Type: application/json|
 |Body|{ "name": "New Stream Name", "id": "new_stream_id" }|
 ### Example
-# Examples
 ````
 POST /streams?auth=kh706w7mo13exdq6w22d HTTP/1.1
 Host: 123456-i.domocare.io
@@ -122,14 +121,41 @@ Content-Type: application/json
 |Request|`streams?mergeEventsWithParent=false&auth=<auth_token>`|
 |Headers||
 |Body||
+|Remark|Need to be called twice. Fist for put the stream into the trash, second to delete it.|
 ### Example
-# Examples
 ````
 DELETE /streams/new_stream_id?mergeEventsWithParent=false&auth=kh706w7mo13exdq6w22d HTTP/1.1
 Host: 123456-i.domocare.io
 
 ```
 
+# Event manipulation
+## Create an event
+|HTTP|Value|
+|---|---|
+|Method|POST|
+|Host|`https://<account>.domocare.io`|
+|Request|`events?auth=<auth_token>`|
+|Headers|Content-Type: application/json|
+|Body|{<br/>  "event": {<br/>    "time": <tine_of_the_event>,<br/>    "streamId": "<stream_id>",<br/>    "tags": [],<br/>    "type": "pill/taken",<br/>    "content": null<br/>  }<br/>}|
+### Example
+```
+POST /events?auth=kh706w7mo13exdq6w22d HTTP/1.1
+Host: 123456-i.domocare.io
+Content-Type: application/json
+
+{
+  "event": {
+    "time": 1467961223.853,
+    "streamId": "new_stream_id",
+    "tags": [],
+    "type": "pill/taken",
+    "content": null
+  }
+}
+```
+
+# Examples
 ## Streams list
 ```javascript
 [
