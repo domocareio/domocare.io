@@ -100,7 +100,8 @@ https://<user id>.domocare.io/events?tags[]=value&limit=100&auth=<authentication
 |HTTP|Value|
 |---|---|
 |Method|POST|
-|Request|streams?auth=<auth_token>|
+|Host|`https://<account>.domocare.io`|
+|Request|`streams?auth=<auth_token>`|
 |Headers|Content-Type: application/json|
 |Body|{ "name": "New Stream Name", "id": "new_stream_id" }|
 ### Example
@@ -112,6 +113,23 @@ Content-Type: application/json
 
 { "name": "New Stream Name", "id": "new_stream_id" }
 ```
+
+## Delete a stream
+|HTTP|Value|
+|---|---|
+|Method|DELETE|
+|Host|`https://<account>.domocare.io`|
+|Request|`streams?mergeEventsWithParent=false&auth=<auth_token>`|
+|Headers||
+|Body||
+### Example
+# Examples
+````
+DELETE /streams/new_stream_id?mergeEventsWithParent=false&auth=kh706w7mo13exdq6w22d HTTP/1.1
+Host: 123456-i.domocare.io
+
+```
+
 ## Streams list
 ```javascript
 [
