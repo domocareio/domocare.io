@@ -94,7 +94,24 @@ https://<user id>.domocare.io/events?streams[]=<stream id>&tags[]=value&fromTime
 ````
 https://<user id>.domocare.io/events?tags[]=value&limit=100&auth=<authentication token>
 ```
+
+# Stream manipulation
+## Create a stream
+|HTTP|Value|
+|---|---|
+|Method|POST|
+|Request|streams?auth=<auth_token>|
+|Headers|Content-Type: application/json|
+|Body|{ "name": "New Stream Name", "id": "new_stream_id" }|
+### Example
 # Examples
+````
+POST /streams?auth=kh706w7mo13exdq6w22d HTTP/1.1
+Host: 123456-i.domocare.io
+Content-Type: application/json
+
+{ "name": "New Stream Name", "id": "new_stream_id" }
+```
 ## Streams list
 ```javascript
 [
